@@ -1,0 +1,29 @@
+.navbar-brand {
+    animation: App-logo-spin infinite 8s ease-in-out;
+    height: 10vmin;
+    pointer-events: none;
+}
+
+.search-Btn {
+    color: rgb(168, 167, 158);
+    border-color: rgb(168, 167, 158);
+}
+
+/* .search-Btn:hover {
+    background-color: rgb(168, 167, 158);
+    border-color: rgb(168, 167, 158);
+} */
+
+.nav-menu {
+    font-family: Syncopate;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@import url('http://fonts.googleapis.com/css?family=Syncopate')
