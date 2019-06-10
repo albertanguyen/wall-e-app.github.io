@@ -9,7 +9,7 @@ Created with :blue_heart: by <a href="https://github.com/albertanguyen">Anh</a>
 
 THE USER IS ABLE TO
 
-- [] Enter a repository in a search bar, click "search", and see the associated issues. The repository should be of the format owner/repo-name, e.g. facebook/react.
+[//]: # (- [] Enter a repository in a search bar, click "search", and see the associated issues. The repository should be of the format owner/repo-name, e.g. facebook/react.)
 
 
 ## Optional User Stories
@@ -23,7 +23,7 @@ THE USER CAN
 * Set up basic server on your own computer (using json-server)
 * Use of Fake Data to use as a demo for your App Model.
 
-## Describe any challenges encountered while building the app.)
+## Describe any challenges encountered while building the app.
 * <a href="https://stackoverflow.com/questions/45148532/cant-install-react-transition-group#45148963">react-router-dom corruption</a>
 
 ## License
