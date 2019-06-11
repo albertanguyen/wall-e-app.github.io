@@ -5,6 +5,7 @@ import {
     Button
 } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ViewIndividuals from './viewindividuals';
 
 class Candidates extends Component {
     constructor(props) {
@@ -12,6 +13,7 @@ class Candidates extends Component {
         this.state = {
             isloaded: true,
         }
+        let { candidates } = this.props    
     }
 
     render() {

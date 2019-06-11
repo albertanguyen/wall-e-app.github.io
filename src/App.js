@@ -5,11 +5,11 @@ import {
   Switch, 
   Link      
 }  from 'react-router-dom';
-import NavbarComponent from './components/navbar';
 import NewCandidates from './screens/newcandidates';
 import Candidates from './screens/candidates';
-import View from './screens/view';
+import Homepage from './screens/homepage';
 import './App.css';
+
 
 
 class WalleApp extends Component {
@@ -17,18 +17,37 @@ class WalleApp extends Component {
     super(props)
     this.state = {
       isloaded: false,
-      candidateList: [],
+      candidateList:[]
     }
   }
+
+
+  componentDidMount() {
+    this.getcandidateList()
+  }
+
+  async getcandidateList() {
+    const url = "http://localhost:3001/candidates";
+    const response = await fetch(url);
+    const jsonData = await response.json();
+    this.setState(
+      {
+        candidateList: jsonData, 
+      }
+    )
+  }
+
   render() {
     return (
-      <div className="App">
-        <NavbarComponent />
-        <header className="App-header">
-          <img src={'img/Wall-e27.png'} className="App-logo" alt="logo" />
-          <h1 className="App-title">Let's find your best companions!</h1>
-        </header>
-        <Router>
+      <Router>
+        <Homepage />
+          <div className="App-body">
+
+            {/* <Route 
+              path = "/cadidates"
+              component={this.state.candidateList}
+            /> */}
+          </div>
           {/* <Route
             path='/candidates'
             render = { (this.state.candidateList) => (
@@ -38,9 +57,7 @@ class WalleApp extends Component {
             )
             }
           /> */}
-        </Router> 
-
-      </div>
+      </Router> 
     );
   }
 }

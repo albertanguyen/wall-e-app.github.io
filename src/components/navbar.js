@@ -18,10 +18,10 @@ const NavbarComponent = () => {
         <Nav.Link className="nav-menu" href="#features">Candidates</Nav.Link>
         <Nav.Link className="nav-menu" href="#pricing">Update Candidates</Nav.Link>
       </Nav>
-      <Form inline>
+      {/* <Form inline>
         <FormControl type="text" placeholder="Search" className="mr-sm-2" />
         <Button className="search-Btn" variant="outline-info">Search</Button>
-      </Form>
+      </Form> */}
     </Navbar>
   );
 };
