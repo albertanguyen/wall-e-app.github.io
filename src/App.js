@@ -49,24 +49,14 @@ class WalleApp extends Component {
             <Route
               exact
               path="/candidates"
-              render={() => {
-                this.state.candidateIdList.map(candidate => (
-                  <div
-                    className="col-lg-4 col-md-6 col-12"
-                    style={{ height: 1000 }}
-                    key={candidate.id}
-                  >
-                    {
+              render={() => (
                       <Candidates
-                        {...candidate}
+                        candidates={this.state.candidateList}
                         getCandidates={this.getcandidateList}
                         viewCandidate={this.getcandidateId}
                         isAuthed={true}
                       />
-                    }
-                  </div>
-                ));
-              }}
+              )}
             />
             <Redirect to="/" />
           </Switch>

@@ -9,6 +9,10 @@ Created with :blue_heart: by <a href="https://github.com/albertanguyen">Anh</a>
 
 THE USER IS ABLE TO
 
+* [x] See the main page with the welcome message
+* [x] Click on Companions on nav menu and be directed to the Companions page, url also changes accordingly.
+* [x] See all Companions cards which include their basic information
+
 [//]: # (- [] Enter a repository in a search bar, click "search", and see the associated issues. The repository should be of the format owner/repo-name, e.g. facebook/react.)
 
 
@@ -31,6 +35,7 @@ THE USER CAN
 
 * Resolve error message <code>&lt;a&gt; cannot appear as a descendant of &lt;a&gt;</code> due to the overuse of Nav.Link and Link at the same time
 * Make sure that Link url and Route url match
+* Cannot use map function within Route, had to map inside child component instead of parent component which renders the site more slowly based on my personal experience
 
 ## License
 
