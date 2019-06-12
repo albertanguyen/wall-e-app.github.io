@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 import { 
     Navbar,
     Nav, 
@@ -14,9 +15,9 @@ const NavbarComponent = () => {
     <Navbar bg="dark" variant="dark">
           <Navbar.Brand href="#home"><img src={'img/Wall-e27.png'} className="navbar-brand" alt="logo" /></Navbar.Brand>
       <Nav className="mr-auto">
-        <Nav.Link className="nav-menu" href="#home">Home</Nav.Link>
-        <Nav.Link className="nav-menu" href="#features">Candidates</Nav.Link>
-        <Nav.Link className="nav-menu" href="#pricing">Update Candidates</Nav.Link>
+        <Link className="nav-menu" to="/">Home</Link>       
+        <Link className="nav-menu" to="/candidates">Candidates</Link>
+        {/* <Nav.Link className="nav-menu">Update Candidates</Nav.Link> */}
       </Nav>
       {/* <Form inline>
         <FormControl type="text" placeholder="Search" className="mr-sm-2" />

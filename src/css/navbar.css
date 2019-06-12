@@ -16,6 +16,13 @@
 
 .nav-menu {
     font-family: Syncopate;
+    color: rgb(168, 167, 158) !important;
+    margin-right: 1em;
+}
+
+.nav-menu:hover {
+  color: rgb(161, 157, 148);
+  text-decoration: none;
 }
 @keyframes App-logo-spin {
   from {

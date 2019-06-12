@@ -6,30 +6,54 @@ import {
 } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ViewIndividuals from './viewindividuals';
+import '../css/candidates.css';
 
 class Candidates extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            isloaded: true,
-        }
-        let { candidates } = this.props    
-    }
 
     render() {
+        console.log('from candidates component',this.props)
+        let {
+            id,
+            firstName,
+            lastName,
+            gender,
+            profilePic,
+            lastJob } = this.props  
+
         return (
-            <Card className="d-flex d-inline-flex mb-5 mx-5 text-center" style={{ width: "800px" }}>
-                <Card.Img className="img-fluid" variant="top" src={'img/Wall-e27.png'} />
+            <Card className="mb-3">
+                <Card.Img className="img-fluid" variant="top" src={profilePic} />
+                <ButtonToolbar className="justify-content-center mt-2 justify-item-center">
+                    <Button style={{ backgroundColor: "#62ccc7", borderColor: "#62ccc7" }}>Update Candidate</Button>
+                    <Button style={{ backgroundColor: "black", borderColor: "#62ccc7" }} onClick={() => this.props.viewCandidate(id)}>View Candidate</Button>
+                </ButtonToolbar>
+
                 <Card.Body>
-                    <p>Released: </p>
-                    <p>Rating: </p>
-                    <Card.Title>bbbbbbbbbbbbb</Card.Title>
-                    <Card.Text style={{ overflowY: "scroll" }}>aaaaaaaaaaaaaaaaaa</Card.Text>
+                    <p>{id}</p>
+                    <Card.Title>{firstName} {lastName}</Card.Title>
+                    <Card.Text style={{ overflowY: "scroll" }}>
+                        <p>{gender}</p>    
+                        <p>{lastJob}</p>   
+                    </Card.Text>
                 </Card.Body>
             </Card>
         )
     }
 
+    renderOnscreen() {
+        if (this.props.length > 0) {
+            return (
+                <div style={{ backgroundColor: "black" }}>
+                    <h1 className="title">Candidates</h1>
+                    <div >
+                        {this.render()}
+                    </div>
+                </div>
+
+            )
+        }
+        return <div>No Candidates</div>
+    }
 }
 
 
