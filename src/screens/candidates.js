@@ -7,6 +7,7 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ViewIndividuals from './viewindividuals';
 import '../css/candidates.css';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class Candidates extends Component {
 ///////////////////////////KHOA ADDED <3///////////////////////////////////////
@@ -24,7 +25,7 @@ class Candidates extends Component {
                     <Card.Img  variant="top" src={profile_pic_url}/>
                     <ButtonToolbar className="justify-content-center mt-2 justify-item-center">
                         <Button style={{ backgroundColor: "#62ccc7", borderColor: "#62ccc7" }}>Update Candidate</Button>
-                        <Button style={{ backgroundColor: "black", borderColor: "#62ccc7" }} onClick={() => this.props.viewCandidate(id)}>View Candidate</Button>
+                        <Link to={"/candidate/"+id} style={{ backgroundColor: "black", borderColor: "#62ccc7" }} onClick={() => this.props.viewCandidate(id)}>View Candidate</Link>
                         <Button style={{ backgroundColor: "black", borderColor: "#62ccc7" }} onClick={() => this.props.handleOnClickDelete(id)}>Delete Candidate</Button>
                     </ButtonToolbar>
 
