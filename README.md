@@ -22,9 +22,15 @@ THE USER CAN
 * Know basic implementation of CRUD App (Create, Read, Update, Delete).
 * Set up basic server on your own computer (using json-server)
 * Use of Fake Data to use as a demo for your App Model.
+* Exclusive route and nested route
 
 ## Describe any challenges encountered while building the app.
 * <a href="https://stackoverflow.com/questions/45148532/cant-install-react-transition-group#45148963">react-router-dom corruption</a>
+
+* <a href="https://stackoverflow.com/questions/49755821/when-using-create-react-app-why-does-the-development-server-keep-disconnecting">The development server has disconnected</a>
+
+* Resolve error message <code>&lt;a&gt; cannot appear as a descendant of &lt;a&gt;</code> due to the overuse of Nav.Link and Link at the same time
+* Make sure that Link url and Route url match
 
 ## License
 
