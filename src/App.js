@@ -38,6 +38,32 @@ class WalleApp extends Component {
     });
   }
 
+
+  ////////////// KHOA ADDED <3 //////////
+  // candidateList = () => {
+  //   return this.state.candidateList.map(({ id, first_name, last_name, country, gender, email, locations, company, profile_pic_url }) => {
+  //     return (
+  //       <>
+  //       <Card style={{ width: '18rem', marginTop: "10px", marginBottom: "30px" }}>
+  //         {<Card.Img variant="top" src={profile_pic_url} />}
+  //         <Card.Body>
+  //           <Card.Title style={{ fontWeight: "500", color: "red" }}>{first_name + last_name}</Card.Title>
+  //           <Card.Text>
+  //             <li id="candidateList">Gender: {gender}</li>
+  //             <li id="candidateList">Company: {company}</li>
+  //             <li id="candidateList">Country: {country}</li>
+  //           </Card.Text>
+  //           <Link style={{ paddingLeft: "10px" }} to={"/candidate/" + id} onClick={() => this.handleOnClickViewInfo(id)}>View Info</Link>
+  //           <Link style={{ paddingLeft: "10px" }} to={"/editCandidate/" + id} onClick={() => this.handleOnClickEdit(id)}> Edit</Link>
+  //           <Link style={{ paddingLeft: "10px" }} to={"/"} onClick={() => this.handleOnClickDelete(id)}>Delete</Link>
+  //         </Card.Body>
+  //       </Card>
+  //       </>
+  //     )
+  //   })
+  // }
+////////////////////////////////
+
   render() {
     console.log("candidate list", this.state.candidateList);
     return (
@@ -46,28 +72,18 @@ class WalleApp extends Component {
           <NavbarComponent />
           <Switch>
             <Route exact path="/" render={() => <Homepage />} />
+{/* KHOA ADDED */}
             <Route
-              exact
               path="/candidates"
-              render={() => {
-                this.state.candidateIdList.map(candidate => (
-                  <div
-                    className="col-lg-4 col-md-6 col-12"
-                    style={{ height: 1000 }}
-                    key={candidate.id}
-                  >
-                    {
-                      <Candidates
-                        {...candidate}
-                        getCandidates={this.getcandidateList}
-                        viewCandidate={this.getcandidateId}
-                        isAuthed={true}
-                      />
-                    }
-                  </div>
-                ));
+              component={(props)=> {
+                return <Candidates 
+                {...props}
+                candidateList={this.state.candidateList}                       
+                />
               }}
             />
+{/* END OF */}
+
             <Redirect to="/" />
           </Switch>
         </div>
@@ -77,3 +93,31 @@ class WalleApp extends Component {
 }
 
 export default WalleApp;
+
+////Your original code
+            // <Route
+            //   exact
+            //   path="/candidates"
+            //   render={() => {
+            //     this.state.candidateIdList.map(candidate => (
+            //       <div
+            //         className="col-lg-4 col-md-6 col-12"
+            //         style={{ height: 1000 }}
+            //         key={candidate.id}
+            //       >
+            //         {
+            //           <Candidates
+            //             {...candidate}
+            //             getCandidates={this.getcandidateList}
+            //             viewCandidate={this.getcandidateId}
+            //             isAuthed={true}
+            //           />
+            //         }
+            //       </div>
+            //     ));
+            //   }}
+            // />
+
+
+
+
