@@ -16,7 +16,7 @@ const NavbarComponent = () => {
           <Navbar.Brand href="#home"><img src={'img/Wall-e27.png'} className="navbar-brand" alt="logo" /></Navbar.Brand>
       <Nav className="mr-auto">
         <Link className="nav-menu" to="/">Home</Link>       
-        <Link className="nav-menu" to="/candidates">Candidates</Link>
+        <Link className="nav-menu" to="/candidates">Companions</Link>
         {/* <Nav.Link className="nav-menu">Update Candidates</Nav.Link> */}
       </Nav>
       {/* <Form inline>
