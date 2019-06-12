@@ -43,7 +43,7 @@ class Candidates extends Component {
 /////////////////////////////////////////////////////////////////////
 
     render() {
-console.log("this.props.candidateList", this.props.candidateList)
+console.log("FIRE", this.props.candidateList)
         return (
             <div>
                 {this.candidateList()}
