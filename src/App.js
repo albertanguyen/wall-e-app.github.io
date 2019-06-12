@@ -39,7 +39,6 @@ class WalleApp extends Component {
   }
 
   render() {
-    console.log("candidate list", this.state.candidateList);
     return (
       <Router>
         <div className="App-body">
