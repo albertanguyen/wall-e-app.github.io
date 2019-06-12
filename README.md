@@ -5,6 +5,9 @@ Created with :blue_heart: by <a href="https://github.com/albertanguyen">Anh</a>
 
 ## Description
 
+<img src="https://github.com/albertanguyen/wall-e-app.github.io/blob/master/public/img/robotScreenshot.png"  align="left" width="48"/>
+
+
 ## Required User Stories
 
 THE USER IS ABLE TO
