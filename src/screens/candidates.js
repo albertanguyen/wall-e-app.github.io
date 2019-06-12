@@ -25,6 +25,7 @@ class Candidates extends Component {
                     <ButtonToolbar className="justify-content-center mt-2 justify-item-center">
                         <Button style={{ backgroundColor: "#62ccc7", borderColor: "#62ccc7" }}>Update Candidate</Button>
                         <Button style={{ backgroundColor: "black", borderColor: "#62ccc7" }} onClick={() => this.props.viewCandidate(id)}>View Candidate</Button>
+                        <Button style={{ backgroundColor: "black", borderColor: "#62ccc7" }} onClick={() => this.props.handleOnClickDelete(id)}>View Candidate</Button>
                     </ButtonToolbar>
 
                     <Card.Body>
