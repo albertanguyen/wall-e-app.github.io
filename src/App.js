@@ -43,10 +43,10 @@ class WalleApp extends Component {
         <Homepage />
           <div className="App-body">
 
-            {/* <Route 
+            <Route 
               path = "/cadidates"
               component={this.state.candidateList}
-            /> */}
+            />
           </div>
           {/* <Route
             path='/candidates'
