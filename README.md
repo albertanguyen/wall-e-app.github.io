@@ -18,19 +18,6 @@ THE USER IS ABLE TO
 
 [//]: # (- [] Enter a repository in a search bar, click "search", and see the associated issues. The repository should be of the format owner/repo-name, e.g. facebook/react.)
 
-
-## Optional User Stories
-
-THE USER CAN
-
-
-## Time Spent and Lessons Learned
-* Use React Router to quickly change between Views
-* Know basic implementation of CRUD App (Create, Read, Update, Delete).
-* Set up basic server on your own computer (using json-server)
-* Use of Fake Data to use as a demo for your App Model.
-* Exclusive route and nested route
-
 ## Describe any challenges encountered while building the app.
 * <a href="https://stackoverflow.com/questions/45148532/cant-install-react-transition-group#45148963">react-router-dom corruption</a>
 
@@ -39,6 +26,17 @@ THE USER CAN
 * Resolve error message <code>&lt;a&gt; cannot appear as a descendant of &lt;a&gt;</code> due to the overuse of Nav.Link and Link at the same time
 * Make sure that Link url and Route url match
 * Cannot use map function within Route, had to map inside child component instead of parent component which renders the site more slowly based on my personal experience
+
+## Version 1.0.1
+
+## Version 1.0.0 (Lessons Learned)
+* Use React Router to quickly change between Views
+* Know basic implementation of CRUD App (Create, Read, Update, Delete).
+* Set up basic server on the local computer (using json-server)
+* Use of Fake Data to use as a demo for the App Model.
+* Exclusive route and nested route
+* Set up navbar components, homepage, candidates screens
+* Inherited the general idea and template from <a href="https://github.com/albertanguyen/tetramoviesapp.github.io">Tetra movie app</a>
 
 ## License
 
