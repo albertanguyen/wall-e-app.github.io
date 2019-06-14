@@ -8,6 +8,7 @@ import {
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ViewIndividuals from './viewindividuals';
 import '../css/candidates.css';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class Candidates extends Component {
 

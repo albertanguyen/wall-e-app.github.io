@@ -10,6 +10,7 @@ import NavbarComponent from './components/navbar';
 import Homepage from "./screens/homepage";
 import Candidates from "./screens/candidates";
 import "./App.css";
+import View from "./screens/viewindividuals"
 
 class WalleApp extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class WalleApp extends Component {
       isloaded: false,
       candidateList: [],
       candidateIdList: [],
+      candidate:{}
     };
   }
 
@@ -38,6 +40,22 @@ class WalleApp extends Component {
     });
   }
 
+
+  handleOnClickDelete = async (id) => {
+    let url = `http://localhost:3001/candidates/${id}`
+    const response = await fetch(url, {
+      method: "DELETE"
+    })
+    this.getcandidateList()
+  }
+
+  viewCandidate = (id) => {
+    console.log("WIND")
+    
+    let selectedCandidate = this.state.candidateList.find(candidate => candidate.id === id)
+    this.setState({ candidate: selectedCandidate })
+  }
+
   render() {
     return (
       <Router>
@@ -46,16 +64,26 @@ class WalleApp extends Component {
           <Switch>
             <Route exact path="/" render={() => <Homepage />} />
             <Route
-              exact
               path="/candidates"
-              render={() => (
-                      <Candidates
-                        candidates={this.state.candidateList}
-                        getCandidates={this.getcandidateList}
-                        viewCandidate={this.getcandidateId}
-                        isAuthed={true}
-                      />
-              )}
+              component={(props) => {
+                return <Candidates
+                  {...props}
+                  candidateList={this.state.candidateList}
+                  handleOnClickDelete={this.handleOnClickDelete}
+                  viewCandidate={this.viewCandidate}
+
+                />
+              }}
+            />
+            <Route
+              path="/candidate/:id"
+              component={(props) => {
+                return <View 
+                {...props} 
+                candidate={this.state.candidate}
+                 />
+
+              }}
             />
             <Redirect to="/" />
           </Switch>
@@ -66,3 +94,5 @@ class WalleApp extends Component {
 }
 
 export default WalleApp;
+
+
