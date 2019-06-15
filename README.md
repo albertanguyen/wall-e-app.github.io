@@ -55,16 +55,6 @@ THE USER IS ABLE TO
 [//]: # (\#\# Do more)
 [//]: # (\* How to import and reuse other components that fall out of the current root repo <a href="https://github.com/facebook/react-native/issues/3099">Issues closed on github</a>)
 
-## Version 1.0.1
-
-## Version 1.0.0 (Lessons Learned)
-* Use React Router to quickly change between Views
-* Know basic implementation of CRUD App (Create, Read, Update, Delete).
-* Set up basic server on the local computer (using json-server)
-* Use of Fake Data to use as a demo for the App Model.
-* Exclusive route and nested route
-* Set up navbar components, homepage, candidates screens
-* Inherited the general idea and template from <a href="https://github.com/albertanguyen/tetramoviesapp.github.io">Tetra movie app</a>
 
 ## License
 
