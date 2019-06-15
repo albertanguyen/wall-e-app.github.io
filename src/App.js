@@ -6,6 +6,7 @@ import {
   Redirect,
 } from "react-router-dom";
 import NewCandidates from "./screens/newcandidates";
+import RandomizedString from './components/randomizeString';
 import NavbarComponent from './components/navbar';
 import Homepage from "./screens/homepage";
 import Candidates from "./screens/candidates";
@@ -25,9 +26,19 @@ class WalleApp extends Component {
     this.getcandidateList();
   }
 
-  // getcandidateId() {
+   createFakeID() {
+     const newcandidateList = this.state.candidateList.map(
+       element => {
+         return { ...element, fakeId: RandomizedString() }
+       }
+     )
+      this.setState (
+       {
+         candidateList: newcandidateList
+       }
+     )
+   } 
 
-  // }
 
   async getcandidateList() {
     const url = "http://localhost:3001/candidates";
@@ -35,11 +46,11 @@ class WalleApp extends Component {
     const jsonData = await response.json();
     this.setState({
       candidateList: jsonData,
-    });
+    }, this.createFakeID);
   }
 
   render() {
-    console.log("candidate list", this.state.candidateList);
+    // console.log("candidate list", this.state.candidateList);
     return (
       <Router>
         <div className="App-body">
