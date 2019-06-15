@@ -12,7 +12,8 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class Candidates extends Component {
 
-    render() {
+    render() {  
+        // console.log('props', this.props)
         return (
             <>
             <h3 className="candidatepage-title text-center my-5">Find your companions</h3>
@@ -20,11 +21,14 @@ class Candidates extends Component {
                 {this.props.candidates.map(
                 ({
                 id,
+                fakeId,
                 firstName,
                 lastName,
                 gender,
                 profilePic,
                 lastJob,
+                slogan,
+                version
                 }) => {
                     return (
                             <div className="col-lg-4 col-md-6 col-12" style={{ width: 200 }} key={id}>
@@ -36,11 +40,12 @@ class Candidates extends Component {
                                     </ButtonToolbar>
 
                                     <Card.Body>
-                                        <p>{id}</p>
-                                        <Card.Title>{firstName} {lastName}</Card.Title>
+                                        <p>Manufatured ID: <strong>{fakeId} </strong></p>
+                                        <Card.Title>{firstName} {lastName} - <i>{version}</i></Card.Title>
                                         <Card.Text style={{ overflowY: "scroll" }}>
                                             <p>{gender}</p>
                                             <p>{lastJob}</p>
+                                        <p><i>{slogan}</i></p>
                                         </Card.Text>
                                     </Card.Body>
                                 </Card>
