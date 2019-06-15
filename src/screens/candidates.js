@@ -1,18 +1,29 @@
-/* eslint-disable no-undef */
 import React, { Component } from 'react';
 import {
     Card,
     ButtonToolbar,
     Button
 } from 'react-bootstrap';
+import MyVerticallyCenteredModal from '../components/verticalmodal';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import ViewIndividuals from './viewindividuals';
 import '../css/candidates.css';
 
 class Candidates extends Component {
+    constructor() {
+        super();
+        this.state={
+            modalPresence: false,   
+        }
+
+    }
+
+    modalCloseHandling = () => {
+    this.setState({ modalPresence: false });
+    }
+
 
     render() {
-        // console.log('props', this.props)
+        console.log('candidateprops', this.props)
         return (
             <>
                 <h3 className="candidatepage-title text-center my-5">Find your companions</h3>
@@ -27,24 +38,25 @@ class Candidates extends Component {
                             profilePic,
                             lastJob,
                             slogan,
-                            version
+                            version,
                         }) => {
                             return (
                                 <div className="col-lg-4 col-md-6 col-12" style={{ width: 200 }} key={id}>
                                     <Card className="mb-3">
                                         <Card.Img variant="top" src={profilePic} />
-                                        <ButtonToolbar className="justify-content-center mt-2 justify-item-center">
-                                            <Button style={{ backgroundColor: "#62ccc7", borderColor: "#62ccc7" }}>Update Candidate</Button>
-                                            <Button style={{ backgroundColor: "black", borderColor: "#62ccc7" }}>View Candidate</Button>
-                                        </ButtonToolbar>
-
-                                        <Card.Body>
+                                        <ButtonToolbar className="justify-content-center mt-2 justify-item-center justify-content-around">
+                                            <Button 
+                                                onClick={() => this.setState({ modalPresence: true })}
+                                                style={{ backgroundColor: "#62ccc7", borderColor: "#62ccc7" }}>Full contact</Button>
+                                            <Button 
+                                                style={{ backgroundColor: "black", borderColor: "#62ccc7" }}>View Candidate</Button>
+                                        </ButtonToolbar>                                        <Card.Body>
                                             <p>Manufatured ID: <strong>{fakeId} </strong></p>
-                                            <Card.Title>{firstName} {lastName} - <i>{version}</i></Card.Title>
+                                            <Card.Title>{firstName} {lastName} - Version: <i>{version}</i></Card.Title>
                                             <Card.Text style={{ overflowY: "scroll" }}>
                                                 <p>{gender}</p>
-                                                <p>{lastJob}</p>
-                                                <p><i>{slogan}</i></p>
+                                                <p><i>Last latest job:</i> {lastJob}</p>
+                                                <p>{gender === "Female" ? "Her" : "His"} slogan: <q>{slogan}</q></p>
                                             </Card.Text>
                                         </Card.Body>
                                     </Card>
@@ -52,7 +64,13 @@ class Candidates extends Component {
                             )
                         }
                     )}
+                    <MyVerticallyCenteredModal
+                        modalShow={this.state.modalPresence}
+                        modalClose={ () => this.modalCloseHandling}
+                        candidates={this.props.candidates}
+                    />
                 </div>
+
             </>
         )
     }

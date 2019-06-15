@@ -5,7 +5,8 @@ import {
   Switch,
   Redirect,
 } from "react-router-dom";
-import NewCandidates from "./screens/newcandidates";
+import View from './screens/viewindividuals';
+// import NewCandidates from "./screens/newcandidates";
 import RandomizedString from './components/randomizeString';
 import NavbarComponent from './components/navbar';
 import Homepage from "./screens/homepage";
@@ -18,6 +19,7 @@ class WalleApp extends Component {
     this.state = {
       isloaded: false,
       candidateList: [],
+      contactList:[],
       candidateIdList: [],
     };
   }
@@ -39,7 +41,6 @@ class WalleApp extends Component {
     )
   }
 
-
   async getcandidateList() {
     const url = "http://localhost:3001/candidates";
     const response = await fetch(url);
@@ -50,7 +51,7 @@ class WalleApp extends Component {
   }
 
   render() {
-    // console.log("candidate list", this.state.candidateList);
+    console.log("candidate list in App.js", this.state);
     return (
       <Router>
         <div className="App-body">
@@ -63,11 +64,14 @@ class WalleApp extends Component {
               render={() => (
                 <Candidates
                   candidates={this.state.candidateList}
-                  getCandidates={this.getcandidateList}
                   viewCandidate={this.getcandidateId}
                   isAuthed={true}
                 />
               )}
+            />
+            <Route
+            path="/candidates/id"
+
             />
             <Redirect to="/" />
           </Switch>
