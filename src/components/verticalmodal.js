@@ -1,10 +1,17 @@
 import React, { Component } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Button, Navbar, Form, Image, Col, Nav, Modal } from "react-bootstrap";
+import { 
+  Button, 
+  Navbar, 
+  Form, 
+  FormControl,
+  Image, 
+  Col, 
+  Nav, 
+  Modal } from "react-bootstrap";
 import "../css/verticalmodal.css";
 
 class MyVerticallyCenteredModal extends Component {
-
   render() {
     console.log("modal props", this.props);
 
@@ -18,8 +25,8 @@ class MyVerticallyCenteredModal extends Component {
         <Modal.Header style={{ backgroundColor: "#282c34" }} closeButton>
           <Navbar variant="dark">
             <Nav className="mr-auto" />
-            {/* Render Last name, prounounce and his/her avatar here */}
-            {/* <Form.Row>
+            <Form inline>
+              {/* Render Last name, prounounce and his/her avatar here */}
               <Image
                 className="profilepic"
                 src={this.props.profilePic}
@@ -31,25 +38,29 @@ class MyVerticallyCenteredModal extends Component {
                   {this.props.lastName}
                 </Form.Label>
               </Form.Group>
-            </Form.Row> */}
+            </Form>
           </Navbar>
         </Modal.Header>
         <Modal.Body>
-                {/* render contact list here from App.js */}
-          {/* <ul>
-            <li>{this.props.candidates.email}</li>
-            <li>{this.props.candidates.city}</li>
-            <li>{this.props.candidates.phone}</li>
-            <li>{this.props.candidates.streetAddress}</li>
-            <li>{this.props.candidates.postalCode}</li>
-            <li>{this.props.candidates.country}</li>
-          </ul> */}
+          <Form.Group controlId="exampleForm.ControlTextarea1">
+            <Form.Label>Contact information</Form.Label>
+            {/* render contact list here from App.js */}
+            <ul>
+              <li>Email: {this.props.email ? this.props.email : "Request extra info"}</li>
+              <li>City: {this.props.city ? this.props.city : "Request extra info"}</li>
+              <li>Phone: {this.props.phone ? this.props.phone : "Request extra info"}</li>
+              <li>{(this.props.streetAddress && this.props.postalCode && this.props.country) 
+                ? this.props.streetAddress + ", " + this.props.postalCode + ", " + this.props.country 
+                : <a href="#">"Request extra info"</a>}
+              </li>
+          </ul>
+          </Form.Group>
         </Modal.Body>
         <Modal.Footer style={{ backgroundColor: "#282c34" }}>
           <Navbar variant="dark">
             <Button
               className="mr-auto"
-              onClick={this.props.modalClose}
+              onClick={this.props.onHide}
               variant="outline-info"
             >
               F&F Contact
