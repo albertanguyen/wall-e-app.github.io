@@ -34,10 +34,16 @@ THE USER IS ABLE TO
 * <a href="https://stackoverflow.com/questions/49755821/when-using-create-react-app-why-does-the-development-server-keep-disconnecting">The development server has disconnected</a>
 
 * Resolve error message <code>&lt;a&gt; cannot appear as a descendant of &lt;a&gt;</code> due to the overuse of Nav.Link and Link at the same time
-* Make sure that Link url and Route url match
-* Cannot use map function within Route, had to map inside child component instead of parent component which renders the site more slowly based on my personal experience
-* Cannot use this.setState inside map function
+* Make sure that <code>Link url</code> and <code>Route url</code> match
+* Cannot use map function within <code>Route</code>, have to map inside child component instead of parent component which renders the site more slowly based on my personal experience.
+* Cannot use <code>this.setState</code> inside map function
+* 3 modals pop up at the same time seen in candidates page
+while <code>verticalmodal.js</code> is put within <code>map</code> function. This is a visual proof on UI that the <code>componentDidMount</code> method within <code>App.js</code> gets call 3 times.
 
+## Describe any remained challenges 
+
+* <a href="https://stackoverflow.com/questions/39974210/why-componentdidmount-gets-called-multiple-times-in-react-js-redux#39974776">componentDidMount gets called multiple times</a> because of <code>this.state</code> got updated successfully after every single API request. 
+* still do not know how to <a href="https://github.com/ReactTraining/react-router/issues/187">have multiple routers on the same page</a> since I try to move <code>verticalmodal.js</code> to <code>App.js</code>
 
 ## Version 1.0.1
 * Create randomized string for manufatured Id

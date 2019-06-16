@@ -6,4 +6,13 @@
       font-family: Syncopate;
 }
 
+.view-candidate-btn Button {
+    color: white !important;
+}
+
+.view-candidate-text Link {
+    color: rgb(168, 167, 158) !important;
+    text-decoration: none;
+}
+
 @import url('http://fonts.googleapis.com/css?family=Syncopate')

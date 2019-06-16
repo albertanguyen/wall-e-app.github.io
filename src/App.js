@@ -4,9 +4,10 @@ import {
   Route,
   Switch,
   Redirect,
-} from "react-router-dom";
+} from 'react-router-dom';
 import View from './screens/viewindividuals';
 // import NewCandidates from "./screens/newcandidates";
+import MyVerticallyCenteredModal from "./components/verticalmodal";
 import RandomizedString from './components/randomizeString';
 import NavbarComponent from './components/navbar';
 import Homepage from "./screens/homepage";
@@ -21,11 +22,44 @@ class WalleApp extends Component {
       candidateList: [],
       contactList:[],
       candidateIdList: [],
+      candidate: {}
     };
   }
 
+  // componentDidUpdate() {
+  //   this.getcandidateList();    
+  // }
+
   componentDidMount() {
     this.getcandidateList();
+  }
+
+  // changeURLCandidate() {
+    
+  // }
+
+  // getcandidateId() {
+  //   const candidateIdList = this.state.candidateIdList.map(
+  //     element => {
+  //       return element.id
+  //     }
+  //   ) 
+  //   this.setState(
+  //     {
+  //       candidateIdList: candidateIdList
+  //     }
+  //   ) 
+  // }
+
+  getindividual = (id) => {
+    // const result = inventory.find(fruit => fruit.name === 'cherries');
+    const selectedCandidate = this.state.candidateList.find( element => element.id = id)
+    console.log(selectedCandidate)
+    this.setState(
+      {
+        candidate: selectedCandidate
+      }
+    )
   }
 
   createFakeID() {
@@ -61,17 +95,35 @@ class WalleApp extends Component {
             <Route
               exact
               path="/candidates"
-              render={() => (
+              render={(props) => (
                 <Candidates
+                  {...props}
                   candidates={this.state.candidateList}
-                  viewCandidate={this.getcandidateId}
+                  viewCandidate={this.getindividual}
                   isAuthed={true}
                 />
               )}
             />
             <Route
-            path="/candidates/id"
-
+              path="/candidates/:id"
+              render = {(props) => (
+                <View 
+                  {...props}
+                  candidate={this.state.candidate}
+                />
+              )}
+            />
+            <Route
+              exact
+              path="/candidates"
+              render={(props) => (
+                <MyVerticallyCenteredModal
+                  {...props}
+                  show={this.state.modalShow}
+                  onHide={this.modalClose}
+                  candidate={this.state.candidate}
+                />
+              )}
             />
             <Redirect to="/" />
           </Switch>

@@ -29,13 +29,13 @@ class MyVerticallyCenteredModal extends Component {
               {/* Render Last name, prounounce and his/her avatar here */}
               <Image
                 className="profilepic"
-                src={this.props.profilePic}
+                src={this.props.candidate.profilePic}
                 roundedCircle
               />
               <Form.Group as={Col} controlId="formGridEmail">
                 <Form.Label className="title" inline>
-                  {this.props.gender === "Female" ? "Ms." : "Mr."}{" "}
-                  {this.props.lastName}
+                  {this.props.candidate.gender === "Female" ? "Ms." : "Mr."}{" "}
+                  {this.props.candidate.lastName}
                 </Form.Label>
               </Form.Group>
             </Form>
